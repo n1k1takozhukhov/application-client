@@ -1,4 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-application-client-application-clientUITests/Pods-application-client-application-clientUITests-frameworks.sh
-${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework
 ${BUILT_PRODUCTS_DIR}/Resolver/Resolver.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework

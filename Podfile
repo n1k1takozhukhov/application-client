@@ -6,7 +6,6 @@ target 'application-client' do
   use_frameworks!
 
   # Pods for application-client
-  pod 'CocoaDebug', '~> 1.7.2', :configurations => ['Debug']
   pod 'Resolver', '~> 1.5.0'
   pod 'SDWebImage', '~> 5.17.0'
 
