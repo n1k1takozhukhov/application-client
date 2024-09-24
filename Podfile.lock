@@ -1,0 +1,22 @@
+PODS:
+  - Resolver (1.5.1)
+  - SDWebImage (5.17.0):
+    - SDWebImage/Core (= 5.17.0)
+  - SDWebImage/Core (5.17.0)
+
+DEPENDENCIES:
+  - Resolver (~> 1.5.0)
+  - SDWebImage (~> 5.17.0)
+
+SPEC REPOS:
+  trunk:
+    - Resolver
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Resolver: 0e2ce51257e9366c54afe1b9e9be25059e9b9300
+  SDWebImage: 750adf017a315a280c60fde706ab1e552a3ae4e9
+
+PODFILE CHECKSUM: b27021a238921acd15c7d40d77ca88a681679604
+
+COCOAPODS: 1.15.2
