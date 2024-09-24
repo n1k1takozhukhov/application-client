@@ -6,6 +6,7 @@ extension Resolver: ResolverRegistering {
         registerAPIService()
         registerAPIRepository()
         registerLoginViewModel()
+        registerFeedViewModel()
     }
     
     private static func registerNetworkWorker() {
@@ -26,5 +27,10 @@ extension Resolver: ResolverRegistering {
     private static func registerLoginViewModel() {
         register { LoginViewModel() }
             .implements(LoginViewModelProtocol.self)
+    }
+    
+    private static func registerFeedViewModel() {
+        register { FeedCollectionViewModel() }
+            .implements(FeedCollectionViewModelProtocol.self)
     }
 }

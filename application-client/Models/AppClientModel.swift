@@ -1,20 +1,23 @@
 import Foundation
 
-struct AppClientModel: Codable {
-    let posts: [Post]
+struct NewsResponse: Codable {
+    let status: String
+    let totalResults: Int
+    let articles: [Article]
 }
 
-struct Post: Codable {
-    let id: Int
-    let text: String
-    let date: String
-    let author: Author
-    let images: [String] // Список URL изображений
-    let likes: Int
+struct Article: Codable {
+    let source: Source
+    let author: String?
+    let title: String
+    let description: String?
+    let url: String
+    let urlToImage: String?
+    let publishedAt: String
+    let content: String?
 }
 
-struct Author: Codable {
-    let id: Int
+struct Source: Codable {
+    let id: String?
     let name: String
-    let avatarUrl: String
 }

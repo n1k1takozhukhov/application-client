@@ -1,6 +1,7 @@
 import Foundation
 
 protocol NetworkWorkerProtocol {
+    
     func performRequest<T: Codable>(queryParametres: [URLQueryItem]?,
                                     endpoint: String,
                                     apiMethod: APIMethods,
@@ -8,11 +9,13 @@ protocol NetworkWorkerProtocol {
                                     completionHandler: @escaping(Result<T, APIError>) -> Void)
 }
 
-final class NetworkWorker: NetworkWorkerProtocol {
+class NetworkWorker: NetworkWorkerProtocol {
     
     // MARK: - Properties
     
     let decoder = JSONDecoder()
+    let scheme: String = "https"
+    let host: String = "newsapi.org"
     
     // MARK: - Methods
     
@@ -21,29 +24,29 @@ final class NetworkWorker: NetworkWorkerProtocol {
                                     apiMethod: APIMethods,
                                     responseType: T.Type,
                                     completionHandler: @escaping(Result<T, APIError>) -> Void) {
-        
         var components = URLComponents()
-        components.scheme = APIConfig.scheme
-        components.host = APIConfig.host
+        components.scheme = scheme
+        components.host = host
         components.path = endpoint
-        
-        // Добавляем apiKey в запрос как параметр
-        var fullQueryItems = queryParametres ?? []
-        let apiKeyItem = URLQueryItem(name: "apiKey", value: APIConfig.apiKey)
-        fullQueryItems.append(apiKeyItem)
-        components.queryItems = fullQueryItems
-        
-        guard let url = components.url else {
+
+        guard var url = components.url else {
             completionHandler(Result.failure(APIError.badURL))
             return
         }
-        
-        let headers = ["accept": "application/json"]
+            
+        if let queryParametres = queryParametres {
+            url.append(queryItems: queryParametres)
+        }
+            
+        let headers = [
+            "accept": "application/json",
+        ]
         
         var request = URLRequest(
             url: url,
             cachePolicy: .reloadIgnoringLocalCacheData
         )
+        
         request.httpMethod = apiMethod.rawValue
         request.allHTTPHeaderFields = headers
         

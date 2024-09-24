@@ -26,8 +26,12 @@
 		8D0B227F2CA1E1D100C1649A /* LoginScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B227E2CA1E1D100C1649A /* LoginScreenCoordinator.swift */; };
 		8D0B22812CA1EFFA00C1649A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22802CA1EFFA00C1649A /* SceneDelegate.swift */; };
 		8D0B22832CA2A2F400C1649A /* APIRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22822CA2A2F400C1649A /* APIRespository.swift */; };
-		8D0B22852CA2A5BA00C1649A /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22842CA2A5BA00C1649A /* APIConfig.swift */; };
-		8D0B228A2CA2C54200C1649A /* FeedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22892CA2C54200C1649A /* FeedCollection.swift */; };
+		8D0B228A2CA2C54200C1649A /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22892CA2C54200C1649A /* FeedCollectionViewController.swift */; };
+		8D0B228C2CA30AF000C1649A /* FeedCollectionViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B228B2CA30AF000C1649A /* FeedCollectionViewCoordinator.swift */; };
+		8D0B228E2CA30C9E00C1649A /* FeedCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B228D2CA30C9E00C1649A /* FeedCollectionViewModel.swift */; };
+		8D0B22932CA31C4000C1649A /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22922CA31C4000C1649A /* DetailPostViewController.swift */; };
+		8D0B22952CA31CA600C1649A /* DetailPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22942CA31CA600C1649A /* DetailPostViewModel.swift */; };
+		8D0B22982CA3377500C1649A /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0B22972CA3377500C1649A /* FeedCollectionViewCell.swift */; };
 		A79574F04074DEDE606C3B03 /* Pods_application_client_application_clientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F181944131CE7A46EB0FD5BC /* Pods_application_client_application_clientUITests.framework */; };
 		F6CA52303B7E5D75C3F06E2F /* Pods_application_clientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0E10C745E05EA3C975CE79 /* Pods_application_clientTests.framework */; };
 /* End PBXBuildFile section */
@@ -76,8 +80,12 @@
 		8D0B227E2CA1E1D100C1649A /* LoginScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenCoordinator.swift; sourceTree = "<group>"; };
 		8D0B22802CA1EFFA00C1649A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8D0B22822CA2A2F400C1649A /* APIRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRespository.swift; sourceTree = "<group>"; };
-		8D0B22842CA2A5BA00C1649A /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
-		8D0B22892CA2C54200C1649A /* FeedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollection.swift; sourceTree = "<group>"; };
+		8D0B22892CA2C54200C1649A /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		8D0B228B2CA30AF000C1649A /* FeedCollectionViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCoordinator.swift; sourceTree = "<group>"; };
+		8D0B228D2CA30C9E00C1649A /* FeedCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewModel.swift; sourceTree = "<group>"; };
+		8D0B22922CA31C4000C1649A /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
+		8D0B22942CA31CA600C1649A /* DetailPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewModel.swift; sourceTree = "<group>"; };
+		8D0B22972CA3377500C1649A /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE0E10C745E05EA3C975CE79 /* Pods_application_clientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_application_clientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CF0FCF0AD94703AD434B56 /* Pods-application-clientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-application-clientTests.debug.xcconfig"; path = "Target Support Files/Pods-application-clientTests/Pods-application-clientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DF3616FDD6145D852037943F /* Pods-application-clientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-application-clientTests.release.xcconfig"; path = "Target Support Files/Pods-application-clientTests/Pods-application-clientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,8 +196,9 @@
 		8D0B22632CA1D83200C1649A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8D0B22862CA2C52800C1649A /* FeedCollectionViewScene */,
+				8D0B228F2CA31C1B00C1649A /* DetailPostViewScrene */,
 				8D0B22672CA1D9A000C1649A /* LoginScreen */,
-				8D0B22862CA2C52800C1649A /* FeedCollection */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -198,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				8D0B22742CA1DC4300C1649A /* NetworkWorker.swift */,
-				8D0B22842CA2A5BA00C1649A /* APIConfig.swift */,
 				8D0B22762CA1DD4A00C1649A /* APISettings.swift */,
 				8D0B22792CA1DE7900C1649A /* APIService.swift */,
 				8D0B22822CA2A2F400C1649A /* APIRespository.swift */,
@@ -255,23 +263,25 @@
 				8D0B22702CA1DB0100C1649A /* Coordinator.swift */,
 				8D0B22722CA1DB4200C1649A /* AppCoordinator.swift */,
 				8D0B227E2CA1E1D100C1649A /* LoginScreenCoordinator.swift */,
+				8D0B228B2CA30AF000C1649A /* FeedCollectionViewCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		8D0B22862CA2C52800C1649A /* FeedCollection */ = {
+		8D0B22862CA2C52800C1649A /* FeedCollectionViewScene */ = {
 			isa = PBXGroup;
 			children = (
 				8D0B22882CA2C53400C1649A /* ViewModel */,
 				8D0B22872CA2C53100C1649A /* View */,
+				8D0B22962CA3375C00C1649A /* CollectionCell */,
 			);
-			path = FeedCollection;
+			path = FeedCollectionViewScene;
 			sourceTree = "<group>";
 		};
 		8D0B22872CA2C53100C1649A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8D0B22892CA2C54200C1649A /* FeedCollection.swift */,
+				8D0B22892CA2C54200C1649A /* FeedCollectionViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,8 +289,42 @@
 		8D0B22882CA2C53400C1649A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8D0B228D2CA30C9E00C1649A /* FeedCollectionViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8D0B228F2CA31C1B00C1649A /* DetailPostViewScrene */ = {
+			isa = PBXGroup;
+			children = (
+				8D0B22912CA31C3400C1649A /* ViewModel */,
+				8D0B22902CA31C3000C1649A /* View */,
+			);
+			path = DetailPostViewScrene;
+			sourceTree = "<group>";
+		};
+		8D0B22902CA31C3000C1649A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D0B22922CA31C4000C1649A /* DetailPostViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D0B22912CA31C3400C1649A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D0B22942CA31CA600C1649A /* DetailPostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8D0B22962CA3375C00C1649A /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				8D0B22972CA3377500C1649A /* FeedCollectionViewCell.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		98CA1954E03570CD55F20FC4 /* Pods */ = {
@@ -536,18 +580,22 @@
 			files = (
 				8D0B22372CA1B9E300C1649A /* LoginViewController.swift in Sources */,
 				8D0B22332CA1B9E300C1649A /* AppDelegate.swift in Sources */,
+				8D0B22982CA3377500C1649A /* FeedCollectionViewCell.swift in Sources */,
 				8D0B227C2CA1E10D00C1649A /* LoginViewModel.swift in Sources */,
 				8D0B22752CA1DC4300C1649A /* NetworkWorker.swift in Sources */,
 				8D0B22712CA1DB0100C1649A /* Coordinator.swift in Sources */,
+				8D0B22932CA31C4000C1649A /* DetailPostViewController.swift in Sources */,
+				8D0B228C2CA30AF000C1649A /* FeedCollectionViewCoordinator.swift in Sources */,
 				8D0B226E2CA1DAD200C1649A /* AppClientModel.swift in Sources */,
-				8D0B22852CA2A5BA00C1649A /* APIConfig.swift in Sources */,
 				8D0B22772CA1DD4A00C1649A /* APISettings.swift in Sources */,
 				8D0B227A2CA1DE7900C1649A /* APIService.swift in Sources */,
 				8D0B227F2CA1E1D100C1649A /* LoginScreenCoordinator.swift in Sources */,
 				8D0B226C2CA1DA2000C1649A /* Resolver.swift in Sources */,
 				8D0B22732CA1DB4200C1649A /* AppCoordinator.swift in Sources */,
+				8D0B22952CA31CA600C1649A /* DetailPostViewModel.swift in Sources */,
 				8D0B22812CA1EFFA00C1649A /* SceneDelegate.swift in Sources */,
-				8D0B228A2CA2C54200C1649A /* FeedCollection.swift in Sources */,
+				8D0B228A2CA2C54200C1649A /* FeedCollectionViewController.swift in Sources */,
+				8D0B228E2CA30C9E00C1649A /* FeedCollectionViewModel.swift in Sources */,
 				8D0B22832CA2A2F400C1649A /* APIRespository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

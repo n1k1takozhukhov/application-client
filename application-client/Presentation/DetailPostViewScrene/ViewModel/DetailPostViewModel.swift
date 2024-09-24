@@ -1,8 +1,21 @@
+//import Foundation
+//import UIKit
 //
-//  DetailPostViewModel.swift
-//  application-client
+//protocol DetailPostViewModelProtocol {
+//    
+//}
 //
-//  Created by Никита Кожухов on 24.09.2024.
+//final class DetailPostViewModel: UIViewController, DetailPostViewModelProtocol {
+//    
+//    //MARK: Properties
+//    
+//    
+//    //MARK: Lifecycle
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = .systemPink
+//    }
+//    
+//    //MARK: Methods
 //
-
-import Foundation
+//}
