@@ -7,8 +7,9 @@ final class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad called") // Для проверки
         view.backgroundColor = .red
+        
+        
     }
 }
 
