@@ -64,7 +64,7 @@ private extension DetailPostViewController {
 
 private extension DetailPostViewController {
     static func makeImage() -> UIImageView {
-        let image = UIImage(named: "")
+        let image = UIImage(named: "noimage")
         let item = UIImageView(image: image)
         item.contentMode = .scaleAspectFit
         item.translatesAutoresizingMaskIntoConstraints = false

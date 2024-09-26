@@ -30,6 +30,6 @@ final class FeedCollectionViewCoordinator: Coordinator, FeedCollectionViewCoordi
     
     func openPost(image: UIImage) {
         let viewController = DetailPostViewController(image: image)
-        navigationController?.setViewControllers([viewController], animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -196,9 +196,9 @@
 		8D0B22632CA1D83200C1649A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8D0B22672CA1D9A000C1649A /* LoginScreen */,
 				8D0B22862CA2C52800C1649A /* FeedCollectionViewScene */,
 				8D0B228F2CA31C1B00C1649A /* DetailPostViewScrene */,
-				8D0B22672CA1D9A000C1649A /* LoginScreen */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -227,8 +227,7 @@
 		8D0B22672CA1D9A000C1649A /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8D0B22692CA1D9B200C1649A /* ViewModel */,
-				8D0B22682CA1D9AC00C1649A /* View */,
+				8D0B22992CA48DBE00C1649A /* LoginController */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -273,7 +272,6 @@
 			children = (
 				8D0B22882CA2C53400C1649A /* ViewModel */,
 				8D0B22872CA2C53100C1649A /* View */,
-				8D0B22962CA3375C00C1649A /* CollectionCell */,
 			);
 			path = FeedCollectionViewScene;
 			sourceTree = "<group>";
@@ -282,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				8D0B22892CA2C54200C1649A /* FeedCollectionViewController.swift */,
+				8D0B22972CA3377500C1649A /* FeedCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,12 +318,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		8D0B22962CA3375C00C1649A /* CollectionCell */ = {
+		8D0B22992CA48DBE00C1649A /* LoginController */ = {
 			isa = PBXGroup;
 			children = (
-				8D0B22972CA3377500C1649A /* FeedCollectionViewCell.swift */,
+				8D0B22692CA1D9B200C1649A /* ViewModel */,
+				8D0B22682CA1D9AC00C1649A /* View */,
 			);
-			path = CollectionCell;
+			path = LoginController;
 			sourceTree = "<group>";
 		};
 		98CA1954E03570CD55F20FC4 /* Pods */ = {

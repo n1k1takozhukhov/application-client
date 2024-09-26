@@ -21,7 +21,7 @@ final class AppCoordinator: Coordinator, AppCoordinatorProtocol {
     //MARK: Methods
     
     func start() {
-        let coordinator = FeedCollectionViewCoordinator(navigationController!)
+        let coordinator = LoginScreenCoordinator(navigationController)
         coordinator.window = window
         coordinator.start()
     }
