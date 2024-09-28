@@ -1,9 +1,10 @@
 import UIKit
 import Foundation
 
-protocol LoginScreenCoordinatorProtocol {
-
+protocol LoginScreenCoordinatorProtocol: AnyObject {
+    func navigateToFeed()
 }
+
 
 final class LoginScreenCoordinator: Coordinator, LoginScreenCoordinatorProtocol {
     
@@ -25,5 +26,10 @@ final class LoginScreenCoordinator: Coordinator, LoginScreenCoordinatorProtocol 
         viewController.coordinator = self
         navigationController?.setViewControllers([viewController], animated: true)
         window?.rootViewController = navigationController
+    }
+
+    func navigateToFeed() {
+        let feedViewController = FeedCollectionViewCoordinator(navigationController!)
+        feedViewController.start()
     }
 }

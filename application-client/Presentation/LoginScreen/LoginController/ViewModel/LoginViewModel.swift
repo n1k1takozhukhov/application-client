@@ -6,4 +6,5 @@ protocol LoginViewModelProtocol {
 
 final class LoginViewModel: LoginViewModelProtocol {
     
+   
 }
