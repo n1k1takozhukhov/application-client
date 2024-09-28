@@ -9,6 +9,7 @@ protocol APIRepositoryProtocol {
 final class APIRepository: APIRepositoryProtocol {
     
     //MARK: Properties
+    
     @Injected var apiService: APIServiceProtocol
     
     //MARK: Methods

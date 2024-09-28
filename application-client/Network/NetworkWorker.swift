@@ -11,13 +11,13 @@ protocol NetworkWorkerProtocol {
 
 class NetworkWorker: NetworkWorkerProtocol {
     
-    // MARK: - Properties
+    //MARK: - Properties
     
     let decoder = JSONDecoder()
     let scheme: String = "https"
     let host: String = "newsapi.org"
     
-    // MARK: - Methods
+    //MARK: - Methods
     
     func performRequest<T: Codable>(queryParametres: [URLQueryItem]?,
                                     endpoint: String,

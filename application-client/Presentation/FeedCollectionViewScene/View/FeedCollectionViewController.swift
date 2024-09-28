@@ -8,13 +8,14 @@ final class FeedCollectionViewController: UIViewController {
     
     var coordinator: FeedCollectionViewCoordinatorProtocol?
     @Injected var viewModel: FeedCollectionViewModelProtocol
+    private var isPostOpening = false
     
     //MARK: UI Components
-
+    
     private lazy var collectionView = makeCollectionView()
     
-    // MARK: Lifecycle
-
+    //MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -29,14 +30,12 @@ final class FeedCollectionViewController: UIViewController {
         super.viewWillAppear(animated)
         self.updateUI()
         self.setupConstrain()
-
     }
-
+    
     //MARK: Private Methods
-
+    
     private func updateUI() {
         view.backgroundColor = .systemBackground
-        
     }
     
     private func setupCollectionView() {
@@ -58,14 +57,15 @@ extension FeedCollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.reuseIdentifier, for: indexPath) as? FeedCollectionViewCell else {
             return UICollectionViewCell()
         }
         
         let article = self.viewModel.dataSource[indexPath.row]
-        cell.configure(with: article)
+        let cellViewModel = FeedCollectionViewCellViewModel(article: article)
+        cell.configure(with: cellViewModel)
         cell.delegate = self
         return cell
     }
@@ -76,18 +76,18 @@ extension FeedCollectionViewController: UICollectionViewDataSource {
 extension FeedCollectionViewController: UICollectionViewDelegate { }
 
 
-
-
 //MARK: - FeedCollectionViewCellDelegate
 
 extension FeedCollectionViewController: FeedCollectionViewCellDelegate {
-    func imageDidTapped(image: UIImage) {
-        self.coordinator?.openPost(image: image)
+    func imageDidTapped(authorName: String, description: String, image: UIImage) {
+        guard !isPostOpening else { return }
+        isPostOpening = true
         
-        let detailVC = DetailPostViewController(image: image)
-        navigationController?.pushViewController(detailVC, animated: true)
-
-    }    
+        self.coordinator?.openPost(authorName: authorName, description: description, image: image)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.isPostOpening = false
+        }
+    }
 }
 
 
@@ -113,7 +113,7 @@ private extension FeedCollectionViewController {
 
 
 //MARK: - makeCollectionView
-    
+
 private extension FeedCollectionViewController {
     func makeCollectionView() -> UICollectionView {
         let layout = UICollectionViewFlowLayout()

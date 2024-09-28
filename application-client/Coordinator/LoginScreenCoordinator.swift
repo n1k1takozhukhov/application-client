@@ -29,7 +29,7 @@ final class LoginScreenCoordinator: Coordinator, LoginScreenCoordinatorProtocol 
     }
 
     func navigateToFeed() {
-        let feedViewController = FeedCollectionViewController()
-        navigationController?.pushViewController(feedViewController, animated: true)
+        let feedViewController = FeedCollectionViewCoordinator(navigationController!)
+        feedViewController.start()
     }
 }

@@ -6,6 +6,7 @@ protocol AppCoordinatorProtocol: AnyObject {
 
 
 final class AppCoordinator: Coordinator, AppCoordinatorProtocol {
+    
     //MARK: Properties
     
     var navigationController: UINavigationController?

@@ -3,7 +3,7 @@ import UIKit
 
 
 protocol FeedCollectionViewCoordinatorProtocol {
-    func openPost(image: UIImage)
+    func openPost(authorName: String, description: String, image: UIImage)
 }
 
 
@@ -28,8 +28,8 @@ final class FeedCollectionViewCoordinator: Coordinator, FeedCollectionViewCoordi
         navigationController?.setViewControllers([viewController], animated: true)
     }
     
-    func openPost(image: UIImage) {
-        let viewController = DetailPostViewController(image: image)
+    func openPost(authorName: String, description: String, image: UIImage) {
+        let viewController = DetailPostViewController(authorName: authorName, description: description, image: image)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

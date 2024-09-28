@@ -3,12 +3,11 @@ import Resolver
 
 final class LoginViewController: UIViewController {
     
-    // MARK: Properties
+    //MARK: Properties
 
     var coordinator: LoginScreenCoordinatorProtocol?
     @Injected var viewModel: LoginViewModelProtocol
 
-    
     //MARK: UI Components
 
     private let titleLabel = makeTitleLabel()
@@ -19,7 +18,7 @@ final class LoginViewController: UIViewController {
     private let titleCreateAcc = makeBodyLabel()
     private lazy var createAccountButton = makeCreateAccountButton()
     
-    // MARK: Lifecycle
+    //MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,8 @@ final class LoginViewController: UIViewController {
         
     }
     
-    // MARK: Private methods
+    //MARK: Private methods
+    
     private func updateUI() {
         view.backgroundColor = .systemBackground
 
@@ -40,7 +40,6 @@ final class LoginViewController: UIViewController {
 
         autButton.setTitle("Login Account", for: .normal)
         autButton.addAction(UIAction { [weak self] _ in
-//            self?.viewModel.didTapLoginButton()
             self?.coordinator?.navigateToFeed()
         }, for: .touchUpInside)
         
@@ -48,7 +47,6 @@ final class LoginViewController: UIViewController {
         
         createAccountButton.setTitle("Create Account", for: .normal)
         createAccountButton.addAction(UIAction { [weak self] _ in
-//            self?.viewModel.didTapCreateAccountButton()
             self?.coordinator?.navigateToFeed()
 
         }, for: .touchUpInside)
@@ -59,6 +57,7 @@ final class LoginViewController: UIViewController {
 //MARK: - Setup Constrain
 
 private extension LoginViewController {
+    
     func setupConstrain() {
         setupTitleImageView()
         setupTitleLabel()
@@ -139,6 +138,7 @@ private extension LoginViewController {
 //MARK: - Make UI
 
 private extension LoginViewController {
+    
     static func makeTitleLabel() -> UILabel {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
