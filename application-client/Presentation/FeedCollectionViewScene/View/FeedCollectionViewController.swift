@@ -19,15 +19,12 @@ final class FeedCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        viewModel.fetchData {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
+        fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         self.updateUI()
         self.setupConstrain()
     }
@@ -38,14 +35,31 @@ final class FeedCollectionViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
+    private func fetchData() {
+        viewModel.fetchData {
+            DispatchQueue.main.async {
+                if NetworkMonitor.shared.isConnected {
+                    self.collectionView.reloadData()
+                } else {
+                    self.showAlert(message: "There is no internet connection.")
+                }
+            }
+        }
+    }
+    
     private func setupCollectionView() {
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.reuseIdentifier)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
+    
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }
-
 
 //MARK: - UICollectionViewDataSource
 
@@ -57,7 +71,7 @@ extension FeedCollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.reuseIdentifier, for: indexPath) as? FeedCollectionViewCell else {
             return UICollectionViewCell()

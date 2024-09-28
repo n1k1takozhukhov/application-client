@@ -24,7 +24,6 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         updateUI()
         setupConstrain()
-        
     }
     
     //MARK: Private methods
@@ -33,7 +32,7 @@ final class LoginViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         titleLabel.text = "Sing in"
-        titleImageView.image = UIImage(named: "noimage")
+        titleImageView.image = UIImage(named: "logo")
         
         loginTextField.placeholder = " Enter your login"
         passwordTextField.placeholder = " Enter your password"
@@ -43,7 +42,7 @@ final class LoginViewController: UIViewController {
             self?.coordinator?.navigateToFeed()
         }, for: .touchUpInside)
         
-        titleCreateAcc.text = "do you not have account? "
+        titleCreateAcc.text = "Don't you have an account? "
         
         createAccountButton.setTitle("Create Account", for: .normal)
         createAccountButton.addAction(UIAction { [weak self] _ in
