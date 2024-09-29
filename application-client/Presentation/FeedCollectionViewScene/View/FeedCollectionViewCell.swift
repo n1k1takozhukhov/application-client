@@ -17,7 +17,6 @@ final class FeedCollectionViewCell: UICollectionViewCell {
     
     //MARK: UI Components
     
-    private let containerView = makeContainerView()
     private let authorImage = makeAuthorImageView()
     private let authorNameLabel = makeTitleLabel()
     private let contentTextLabel = makeBodyLabel()
@@ -206,14 +205,6 @@ private extension FeedCollectionViewCell {
         item.translatesAutoresizingMaskIntoConstraints = false
         item.contentMode = .scaleAspectFit
         return item
-    }
-    
-    static func makeContainerView() -> UIView {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
-        view.layer.cornerRadius = 15
-        return view
     }
     
     func makeButton() -> UIButton {

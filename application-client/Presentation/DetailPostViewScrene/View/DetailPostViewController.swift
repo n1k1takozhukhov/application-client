@@ -42,8 +42,8 @@ final class DetailPostViewController: UIViewController {
     
     private func updateUI() {
         view.backgroundColor = .systemBackground
-        authorTitle.text = "authorTitle:"
-        descriptionTitle.text = "descriptionTitle:"
+        authorTitle.text = "author:"
+        descriptionTitle.text = "content:"
     }
 }
 
