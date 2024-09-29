@@ -23,6 +23,7 @@ final class FeedCollectionViewCell: UICollectionViewCell {
     private let dateTimeLabel = makeBodyLabel()
     private let postImageView = makeImageView()
     private lazy var likeButton = makeButton()
+    private let activityIndicator = makeActivityIndicator()
     
     //MARK: Init
     
@@ -43,7 +44,7 @@ final class FeedCollectionViewCell: UICollectionViewCell {
         self.viewModel = viewModel
         
         if let url = viewModel.authorImageUrl {
-            authorImage.sd_setImage(with: url, placeholderImage: UIImage(named: "noimage"))
+            authorImage.sd_setImage(with: url)
         }
         authorNameLabel.text = viewModel.authorName
         contentTextLabel.text = viewModel.descriptionText
@@ -53,9 +54,13 @@ final class FeedCollectionViewCell: UICollectionViewCell {
         likeButton.setImage(UIImage(systemName: likeImage), for: .normal)
         
         if let url = viewModel.postImageUrl {
-            postImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "noimage"))
+            activityIndicator.startAnimating()
+            postImageView.sd_setImage(with: url) { [weak self] _, _, _, _ in
+                self?.activityIndicator.stopAnimating()
+            }
         }
     }
+
     
     //MARK: Private Methods
     
@@ -96,6 +101,7 @@ private extension FeedCollectionViewCell {
         setupLikePostView()
         setupBodyTextLabel()
         setupImage()
+        setupActivityIndicator()
     }
     
     func setupAuthorImage() {
@@ -158,6 +164,14 @@ private extension FeedCollectionViewCell {
             postImageView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    func setupActivityIndicator() {
+        contentView.addSubview(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: postImageView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: postImageView.centerYAnchor)
+        ])
+    }
 }
 
 
@@ -214,5 +228,12 @@ private extension FeedCollectionViewCell {
         button.setImage(image, for: .normal)
         button.tintColor = .systemRed
         return button
+    }
+    
+    static func makeActivityIndicator() -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
     }
 }
