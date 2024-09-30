@@ -24,6 +24,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         updateUI()
         setupConstrain()
+        setupHideKeyboardGesture()
     }
     
     //MARK: Private methods
@@ -31,7 +32,7 @@ final class LoginViewController: UIViewController {
     private func updateUI() {
         view.backgroundColor = .systemBackground
 
-        titleLabel.text = "Sing in"
+        titleLabel.text = "Sign in"
         titleImageView.image = UIImage(named: "logo")
         
         loginTextField.placeholder = " Enter your login"
@@ -47,8 +48,17 @@ final class LoginViewController: UIViewController {
         createAccountButton.setTitle("Create Account", for: .normal)
         createAccountButton.addAction(UIAction { [weak self] _ in
             self?.coordinator?.navigateToFeed()
-
         }, for: .touchUpInside)
+    }
+    
+    private func setupHideKeyboardGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
     }
 }
 
